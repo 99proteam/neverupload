@@ -1,0 +1,30 @@
+name: Tool request
+description: Suggest a new tool or a feature for an existing one.
+labels: [tool request]
+body:
+  - type: textarea
+    id: tool
+    attributes:
+      label: What should the tool do?
+      placeholder: e.g. "Add a text watermark to every page of a PDF."
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it useful?
+      description: Who needs it, and how do they solve it today?
+  - type: checkboxes
+    id: local
+    attributes:
+      label: Can it run 100% in the browser?
+      description: neverupload never sends files to a server. Tools must work offline, without uploads.
+      options:
+        - label: I believe this can work fully on the device, without any server.
+          required: true
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Contributing
+      options:
+        - label: I'd like to build this myself (see CONTRIBUTING.md).

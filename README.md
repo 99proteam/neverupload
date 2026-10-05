@@ -1,0 +1,144 @@
+<div align="center">
+
+# neverupload
+
+**Free PDF and image tools that run 100% in your browser. Your files never leave your device.**
+
+[Live demo](https://99proteam.github.io/neverupload/) · [Report a bug](https://github.com/99proteam/neverupload/issues/new?template=bug_report.yml) · [Request a tool](https://github.com/99proteam/neverupload/issues/new?template=tool_request.yml) · [Support the project](#support-this-project)
+
+<!-- Screenshot: replace docs/screenshot-light.png with a newer capture whenever the UI changes. -->
+<img src="docs/screenshot-light.png" alt="neverupload home page showing a privacy banner, a search box and a grid of PDF and image tools" width="800" />
+
+</div>
+
+## Tools
+
+| Tool                     | What it does                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| **Merge PDF**            | Combine several PDFs into one; drag to set the order.                           |
+| **Split PDF**            | Extract page ranges like `1-3, 5, 8-10`, or split every page (zip download).    |
+| **Compress PDF**         | Re-render pages as JPEG at the quality and resolution you choose; before/after. |
+| **Rotate & Reorder PDF** | Rotate, reorder and delete pages using thumbnails.                              |
+| **Images to PDF**        | JPG, PNG and WebP to one PDF: A4, Letter or fit-to-image pages.                 |
+| **PDF to Images**        | Each page to PNG or JPG at 72/150/300 DPI (zip download).                       |
+| **Compress Image**       | Quality slider with a live size preview; batch support.                         |
+| **Resize Image**         | By pixels or percent, keeping the aspect ratio; batch support.                  |
+| **Convert Image**        | Between JPG, PNG and WebP; batch support.                                       |
+| **QR Code Generator**    | Text or URL to PNG or SVG. No redirects, no tracking, no expiry.                |
+
+Every tool has drag and drop, a progress bar, clear error messages, one-click download and a
+"Process another" button. Everything works offline once the app has loaded, and it can be
+installed as an app (PWA).
+
+## Why no uploads?
+
+Most "free online PDF tools" upload your files to someone else's server. Those files are often
+contracts, IDs, bank statements and medical records. You have to trust a company you don't know
+with them, and you have to wait for large uploads and downloads.
+
+neverupload does everything **on your own device**:
+
+- **No server receives your files.** It's a static website: HTML, JavaScript and CSS. Processing
+  uses your browser's own engines (pdf-lib, pdf.js, Canvas) inside Web Workers.
+- **Enforced by the browser.** The production build ships a Content Security Policy with
+  `connect-src 'self'`, so the page _cannot_ send data to any other server, even by mistake.
+- **No accounts, no analytics, no trackers, no ads, no cookies.**
+- **Works offline.** After the first visit a service worker caches the app. Turn on airplane
+  mode and it still works. That's the easiest way to check the claim yourself.
+- **Open source.** Read the code, or build and host it yourself.
+
+## Run locally
+
+Requirements: Node.js 22 or newer.
+
+```bash
+git clone https://github.com/99proteam/neverupload.git
+cd neverupload
+npm install
+npm run dev        # http://localhost:5173
+```
+
+Other scripts:
+
+| Command             | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| `npm test`          | Unit tests (Vitest) for every processing function     |
+| `npm run lint`      | ESLint + Prettier check                               |
+| `npm run format`    | Format all files with Prettier                        |
+| `npm run typecheck` | Strict TypeScript check                               |
+| `npm run build`     | Production build into `dist/`                         |
+| `npm run preview`   | Serve the production build locally                    |
+| `npm run fixtures`  | Regenerate the small sample files in `tests/fixtures` |
+
+## Self-host
+
+It's just static files, so any web server or static host works (Nginx, Apache, Caddy, Netlify,
+Cloudflare Pages, S3, an intranet share...).
+
+```bash
+npm ci
+npm run build                          # served from the domain root "/"
+# or, to serve from a sub-folder such as https://example.com/tools/
+BASE_PATH=/tools/ SITE_URL=https://example.com/tools npm run build
+```
+
+Then copy the `dist/` folder to your server. `BASE_PATH` is the path the app is served from, and
+`SITE_URL` is used for canonical links and `sitemap.xml`. Each tool has its own pre-rendered
+`dist/<tool>/index.html`, so deep links work even without server-side rewrites. No environment
+secrets, database or backend are needed.
+
+### GitHub Pages
+
+The included workflow (`.github/workflows/deploy.yml`) tests, builds and deploys every push to
+`main`. In your fork, go to **Settings → Pages → Build and deployment → Source** and choose
+**GitHub Actions**. The workflow picks the correct base path automatically, including with a
+custom domain.
+
+## Project structure
+
+```
+src/
+  components/        Shared UI: layout, drop zone, progress bar, result panel...
+  hooks/             useJob (idle → working → done/error), drag-reorder, ...
+  lib/               Shared helpers: zip, formats, pdf.js rendering, image codec
+  workers/           Web Workers (pdf-lib jobs, OffscreenCanvas image jobs) + tiny RPC
+  tools/
+    <tool-name>/
+      meta.ts        Name, route, SEO title/description, FAQ
+      process.ts     Pure processing function(s), no DOM, unit-tested
+      <Name>Tool.tsx The tool's page
+    meta.ts          List of all tools (used by the app and the build)
+    registry.ts      Lazy-loaded tool components
+tests/
+  fixtures/          Tiny sample PDFs and images (generated by scripts/generate-fixtures.mjs)
+  tools/             One test file per tool
+vite-plugins/        Build plugin that writes per-tool HTML, sitemap.xml, robots.txt and the CSP
+```
+
+Want to add a tool? See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Support this project
+
+neverupload is free, has no ads and never will. Donations pay for development time and keep
+it independent.
+
+- ❤️ [Sponsor on GitHub](https://github.com/sponsors/99proteam)
+- ☕ [Buy Me a Coffee](https://buymeacoffee.com/YOUR_BMC_USERNAME) <!-- TODO: replace -->
+- 💳 [Razorpay (UPI, cards; India)](https://razorpay.me/@YOUR_RAZORPAY_HANDLE) <!-- TODO: replace -->
+
+Not able to donate? Starring the repo, sharing it with a friend, or fixing a typo helps too.
+
+## Contributors
+
+Thanks to everyone who has helped build neverupload!
+
+<a href="https://github.com/99proteam/neverupload/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=99proteam/neverupload" alt="Contributors" />
+</a>
+
+New contributors are very welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and issues
+labelled `good first issue`.
+
+## License
+
+[MIT](LICENSE)
