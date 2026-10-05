@@ -13,7 +13,7 @@ import {
 import { detectImageFormat, outputMimeFor, readJpegOrientation } from '../../src/lib/imageFormat';
 import { assertCanvasSize, outputName } from '../../src/lib/imageTransform';
 import { zipFiles } from '../../src/lib/zip';
-import { searchTools, TOOL_METAS } from '../../src/tools/meta';
+import { ALL_PAGES, LANDING_METAS, searchTools, TOOL_METAS } from '../../src/tools/meta';
 import { collectTransferables } from '../../src/workers/protocol';
 import { fixture } from '../helpers';
 
@@ -108,14 +108,23 @@ describe('misc', () => {
     expect(searchTools(TOOL_METAS, 'MERGE').map((t) => t.slug)).toEqual(['merge-pdf']);
     expect(searchTools(TOOL_METAS, '')).toHaveLength(10);
   });
-  it('has complete SEO metadata for every tool', () => {
+  it('has complete SEO metadata for every page', () => {
     const slugs = new Set<string>();
-    for (const t of TOOL_METAS) {
-      expect(slugs.has(t.slug)).toBe(false);
+    for (const t of ALL_PAGES) {
+      expect(slugs.has(t.slug), t.slug).toBe(false);
       slugs.add(t.slug);
-      expect(t.description.length).toBeLessThanOrEqual(170);
-      expect(t.title.length).toBeGreaterThan(10);
-      expect(t.faq.length).toBeGreaterThanOrEqual(2);
+      expect(t.slug).toMatch(/^[a-z0-9-]+$/);
+      expect(t.description.length, t.slug).toBeLessThanOrEqual(170);
+      expect(t.description.length, t.slug).toBeGreaterThan(70);
+      expect(t.title.length, t.slug).toBeLessThanOrEqual(75);
+      expect(t.intro.length, t.slug).toBeGreaterThan(100);
+      expect(t.steps.length, t.slug).toBeGreaterThanOrEqual(3);
+      expect(t.faq.length, t.slug).toBeGreaterThanOrEqual(2);
     }
+  });
+  it('points every landing page at a real tool', () => {
+    const tools = new Set(TOOL_METAS.map((t) => t.slug));
+    expect(LANDING_METAS.length).toBeGreaterThan(5);
+    for (const p of LANDING_METAS) expect(tools.has(p.toolSlug ?? '')).toBe(true);
   });
 });

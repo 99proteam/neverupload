@@ -7,10 +7,30 @@ export const meta: ToolMeta = {
   category: 'pdf',
   icon: 'imagesToPdf',
   summary: 'Turn JPG, PNG and WebP images into one PDF.',
+  intro:
+    'Convert JPG, PNG and WebP images into one PDF document. Perfect for turning photos of receipts, scanned pages or screenshots into a single file. Choose A4, Letter or fit-to-image pages, set the order, and download. Your photos never leave your phone or computer.',
+  steps: [
+    'Drop your images into the box, or tap “Choose images”.',
+    'Drag them into the order the pages should appear.',
+    'Choose the page size (A4, Letter or fit to image), orientation and margin.',
+    'Press “Create PDF” and download it.',
+  ],
   title: 'JPG, PNG and WebP to PDF converter, free and private | neverupload',
   description:
     'Convert JPG, PNG and WebP images into a single PDF. Choose A4, Letter or fit-to-image pages. Runs in your browser; your photos are never uploaded.',
-  keywords: ['jpg to pdf', 'png to pdf', 'webp to pdf', 'photo', 'picture', 'convert', 'scan'],
+  keywords: [
+    'jpg to pdf',
+    'png to pdf',
+    'webp to pdf',
+    'photo',
+    'picture',
+    'convert',
+    'scan',
+    'image to pdf',
+    'photo to pdf',
+    'jpg to pdf converter',
+    'combine images into pdf',
+  ],
   faq: [
     {
       q: 'Which page size should I choose?',

@@ -7,6 +7,14 @@ export const meta: ToolMeta = {
   category: 'pdf',
   icon: 'organize',
   summary: 'Rotate, reorder or delete pages using page thumbnails.',
+  intro:
+    'Rotate PDF pages, change their order or delete pages you don’t need, using clear page thumbnails. Fix sideways scans, put pages in the right order and remove blank pages without any software and without uploading your PDF.',
+  steps: [
+    'Drop a PDF into the box to see every page as a thumbnail.',
+    'Rotate pages left or right, or use “Rotate all”.',
+    'Drag pages to reorder them, or delete the ones you don’t need.',
+    'Press “Save PDF” and download the result.',
+  ],
   title: 'Rotate and reorder PDF pages, free and private | neverupload',
   description:
     'Rotate, reorder and delete PDF pages with visual thumbnails, then download the result. Works in your browser; your PDF never leaves your device.',
@@ -20,6 +28,11 @@ export const meta: ToolMeta = {
     'pages',
     'organize',
     'pdf',
+    'rotate pdf',
+    'reorder pdf pages',
+    'delete pdf pages',
+    'rearrange pdf',
+    'fix sideways pdf',
   ],
   faq: [
     {

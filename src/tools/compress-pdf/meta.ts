@@ -7,10 +7,31 @@ export const meta: ToolMeta = {
   category: 'pdf',
   icon: 'compress',
   summary: 'Shrink scanned or image-heavy PDFs. See the size before and after.',
+  intro:
+    'Reduce the file size of a PDF so it is small enough to email, upload to a form or share on WhatsApp. Pick a quality and resolution, see the size before and after, and download the smaller PDF. Compression happens in your browser, so private documents stay private.',
+  steps: [
+    'Drop a PDF into the box, or tap “Choose a PDF file”.',
+    'Pick a JPEG quality and a resolution (lower = smaller file).',
+    'Press “Compress PDF” and compare the size before and after.',
+    'Download the compressed PDF.',
+  ],
   title: 'Compress PDF to reduce file size, free and private | neverupload',
   description:
     'Reduce PDF file size by re-rendering pages as JPEG at the quality you choose. See before and after sizes. Runs in your browser; nothing is uploaded.',
-  keywords: ['reduce', 'shrink', 'smaller', 'optimize', 'size', 'pdf'],
+  keywords: [
+    'reduce',
+    'shrink',
+    'smaller',
+    'optimize',
+    'size',
+    'pdf',
+    'compress pdf',
+    'reduce pdf size',
+    'pdf compressor',
+    'make pdf smaller',
+    'compress pdf to 1mb',
+    'compress pdf for email',
+  ],
   faq: [
     {
       q: 'How does the compression work?',

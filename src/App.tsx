@@ -11,7 +11,11 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           {TOOLS.map(({ meta, Component }) => (
-            <Route key={meta.slug} path={meta.slug} element={<Component />} />
+            <Route
+              key={meta.slug}
+              path={meta.slug}
+              element={<Component page={meta} preset={meta.preset} />}
+            />
           ))}
           <Route path="*" element={<NotFound />} />
         </Route>

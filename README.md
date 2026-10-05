@@ -94,6 +94,31 @@ The included workflow (`.github/workflows/deploy.yml`) lints, tests and builds e
 `https://<user>.github.io/<repo>/`. If Pages isn't on yet in your fork, open
 **Settings → Pages** and choose **Deploy from a branch → `gh-pages` / root**.
 
+## SEO
+
+Every page is pre-rendered at build time, so search engines and link previews get real content
+without running JavaScript:
+
+- **23 indexable pages:** 10 tools plus keyword landing pages such as `/jpg-to-pdf/`,
+  `/pdf-to-jpg/`, `/webp-to-jpg/` and `/compress-pdf-for-email/` (defined in
+  `src/tools/landing.ts`; each opens the right tool with the right preset).
+- **Per-page tags:** title, description, keywords, canonical, `hreflang`, robots, Open Graph and
+  Twitter cards with a 1200×630 preview image (`public/og/`, regenerate with
+  `CHROME=/path/to/chrome node scripts/generate-og-images.mjs`).
+- **Structured data (JSON-LD):** Organization, WebSite, WebApplication, BreadcrumbList, HowTo
+  and FAQPage.
+- **Crawlable content:** intro, "How to use" steps, FAQ, and internal links between related
+  tools and conversions, plus links to every page in the footer.
+- **`sitemap.xml`, `robots.txt` and `llms.txt`** (a summary for AI search assistants).
+
+**Get indexed faster:** add the site in [Google Search Console](https://search.google.com/search-console)
+and [Bing Webmaster Tools](https://www.bing.com/webmasters) using the "URL prefix" property
+`https://99proteam.github.io/neverupload/`, verify with the **HTML tag** method, and submit
+`sitemap.xml`. To add the verification tag, create repository variables
+(**Settings → Secrets and variables → Actions → Variables**) named `GOOGLE_SITE_VERIFICATION`,
+`BING_SITE_VERIFICATION` or `YANDEX_SITE_VERIFICATION` containing just the code; the next deploy
+adds the matching `<meta>` tag.
+
 ## Project structure
 
 ```

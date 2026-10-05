@@ -10,6 +10,7 @@ import { browserImageTransformer } from '../../lib/imageCodec';
 import { finishImageBatch, type ImageBatchOutput } from '../../lib/imageBatchZip';
 import type { ResizeSpec } from '../../lib/imageTransform';
 import type { OutputMime } from '../../lib/imageFormat';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import { resizeImages } from './process';
 
@@ -20,7 +21,7 @@ function parsePositive(value: string): number | null {
   return value.trim() && Number.isFinite(n) && n > 0 ? n : null;
 }
 
-export default function ResizeImageTool() {
+export default function ResizeImageTool({ page = meta }: ToolProps) {
   const images = useImageItems();
   const job = useJob<ImageBatchOutput>();
   const [mode, setMode] = useState<Mode>('pixels');
@@ -58,7 +59,7 @@ export default function ResizeImageTool() {
   };
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' ? (
         <ImageBatchResults
           output={job.state.result}

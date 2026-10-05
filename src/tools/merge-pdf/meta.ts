@@ -7,10 +7,29 @@ export const meta: ToolMeta = {
   category: 'pdf',
   icon: 'merge',
   summary: 'Combine several PDFs into one file, in the order you choose.',
+  intro:
+    'Merge PDF files online for free without uploading them anywhere. neverupload joins two or more PDF documents into a single PDF right in your browser, keeps every page exactly as it was, and lets you choose the order by dragging. No sign-up, no watermark and no file size limit.',
+  steps: [
+    'Drop your PDF files into the box, or tap “Choose PDF files”.',
+    'Drag the files (or use the arrow buttons) to put them in the order you want.',
+    'Press “Merge PDFs”.',
+    'Download your combined PDF.',
+  ],
   title: 'Merge PDF files online, free and private | neverupload',
   description:
     'Combine multiple PDF files into one in your browser. Drag to reorder, then download. Free, no sign-up, and your files never leave your device.',
-  keywords: ['combine', 'join', 'append', 'concatenate', 'pdf'],
+  keywords: [
+    'combine',
+    'join',
+    'append',
+    'concatenate',
+    'pdf',
+    'merge pdf free',
+    'combine pdf files',
+    'join pdf',
+    'merge pdf offline',
+    'merge pdf without uploading',
+  ],
   faq: [
     {
       q: 'How do I merge PDF files?',

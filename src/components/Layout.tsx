@@ -2,7 +2,7 @@ import { Heart, ShieldCheck } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 import { Suspense } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { SITE } from '../tools/meta';
+import { ALL_PAGES, SITE } from '../tools/meta';
 import { OfflineStatus } from './OfflineStatus';
 import { PrivacyBanner } from './PrivacyBanner';
 import { ProgressBar } from './ProgressBar';
@@ -59,6 +59,17 @@ export function Layout() {
       </main>
 
       <footer className="border-t border-slate-200 dark:border-slate-800">
+        <nav aria-label="All tools" className="mx-auto max-w-5xl px-4 pt-6">
+          <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
+            {ALL_PAGES.map((p) => (
+              <li key={p.slug}>
+                <Link to={`/${p.slug}/`} className="hover:underline">
+                  {p.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-6 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between dark:text-slate-400">
           <p>
             <strong className="text-slate-800 dark:text-slate-200">{SITE.name}</strong> is free and

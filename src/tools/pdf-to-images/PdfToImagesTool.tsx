@@ -13,6 +13,7 @@ import { bytesToBlob } from '../../lib/download';
 import { readFileBytes } from '../../lib/files';
 import { baseName, formatBytes } from '../../lib/format';
 import { zipFiles } from '../../lib/zip';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import { pdfToImages, type PageImageFormat } from './process';
 
@@ -22,10 +23,10 @@ interface Result {
   count: number;
 }
 
-export default function PdfToImagesTool() {
+export default function PdfToImagesTool({ page = meta, preset }: ToolProps) {
   const job = useJob<Result>();
   const { pdf, loading, load, clear } = usePdfFile(job.fail);
-  const [format, setFormat] = useState<PageImageFormat>('png');
+  const [format, setFormat] = useState<PageImageFormat>(preset?.format === 'jpg' ? 'jpg' : 'png');
   const [dpi, setDpi] = useState('150');
   const [quality, setQuality] = useState(85);
 
@@ -63,7 +64,7 @@ export default function PdfToImagesTool() {
   };
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' ? (
         <ResultPanel
           title={`${job.state.result.count} image${job.state.result.count === 1 ? ' is' : 's are'} ready`}

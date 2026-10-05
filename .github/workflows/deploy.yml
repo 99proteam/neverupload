@@ -34,6 +34,11 @@ jobs:
           # and add a public/CNAME file containing the domain.
           BASE_PATH: /${{ github.event.repository.name }}/
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          # Optional search-engine verification codes. Add them under
+          # Settings → Secrets and variables → Actions → Variables.
+          GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
+          BING_SITE_VERIFICATION: ${{ vars.BING_SITE_VERIFICATION }}
+          YANDEX_SITE_VERIFICATION: ${{ vars.YANDEX_SITE_VERIFICATION }}
       - name: Publish to gh-pages
         working-directory: dist
         env:

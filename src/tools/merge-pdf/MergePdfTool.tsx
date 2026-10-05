@@ -11,6 +11,7 @@ import { bytesToBlob } from '../../lib/download';
 import { makeId, readFileBytes } from '../../lib/files';
 import { formatBytes } from '../../lib/format';
 import { runPdfJob } from '../../workers';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 
 interface Item {
@@ -20,7 +21,7 @@ interface Item {
 
 const PDF_ACCEPT = 'application/pdf,.pdf';
 
-export default function MergePdfTool() {
+export default function MergePdfTool({ page = meta }: ToolProps) {
   const [items, setItems] = useState<Item[]>([]);
   const job = useJob<Blob>();
 
@@ -46,7 +47,7 @@ export default function MergePdfTool() {
   const total = items.reduce((sum, i) => sum + i.file.size, 0);
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' ? (
         <ResultPanel
           title="Your merged PDF is ready"

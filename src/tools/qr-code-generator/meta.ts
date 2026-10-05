@@ -7,10 +7,31 @@ export const meta: ToolMeta = {
   category: 'other',
   icon: 'qr',
   summary: 'Turn text or a link into a QR code. Download PNG or SVG.',
+  intro:
+    'Create a QR code for a website link, Wi-Fi details, a phone number or any text. Customise colours and size, then download it as a PNG or a print-ready SVG. These QR codes are static: they never expire and contain no tracking redirects.',
+  steps: [
+    'Type or paste your link or text.',
+    'Adjust the size, colours and error correction if you like.',
+    'Check the live preview.',
+    'Download the QR code as PNG or SVG.',
+  ],
   title: 'Free QR code generator, PNG and SVG, no tracking | neverupload',
   description:
     'Create QR codes from text or URLs and download them as PNG or SVG. No sign-up, no tracking links, no expiry. Generated entirely in your browser.',
-  keywords: ['qr', 'barcode', 'link', 'url', 'svg', 'png', 'generator'],
+  keywords: [
+    'qr',
+    'barcode',
+    'link',
+    'url',
+    'svg',
+    'png',
+    'generator',
+    'qr code maker',
+    'free qr code',
+    'qr code for url',
+    'wifi qr code',
+    'qr code svg',
+  ],
   faq: [
     {
       q: 'Do these QR codes expire?',

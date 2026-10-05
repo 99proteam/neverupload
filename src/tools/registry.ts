@@ -1,9 +1,9 @@
 import { lazy, type ComponentType, type LazyExoticComponent } from 'react';
-import { TOOL_METAS } from './meta';
-import type { ToolMeta } from './types';
+import { ALL_PAGES } from './meta';
+import type { ToolMeta, ToolProps } from './types';
 
 /** Each tool's UI is loaded on demand so the home page stays small. */
-const COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {
+const COMPONENTS: Record<string, LazyExoticComponent<ComponentType<ToolProps>>> = {
   'merge-pdf': lazy(() => import('./merge-pdf/MergePdfTool')),
   'split-pdf': lazy(() => import('./split-pdf/SplitPdfTool')),
   'compress-pdf': lazy(() => import('./compress-pdf/CompressPdfTool')),
@@ -18,11 +18,12 @@ const COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {
 
 export interface ToolEntry {
   meta: ToolMeta;
-  Component: LazyExoticComponent<ComponentType>;
+  Component: LazyExoticComponent<ComponentType<ToolProps>>;
 }
 
-export const TOOLS: ToolEntry[] = TOOL_METAS.map((meta) => {
-  const Component = COMPONENTS[meta.slug];
+/** One route per page; landing pages reuse their base tool's component. */
+export const TOOLS: ToolEntry[] = ALL_PAGES.map((meta) => {
+  const Component = COMPONENTS[meta.toolSlug ?? meta.slug];
   if (!Component) throw new Error(`No component registered for tool "${meta.slug}"`);
   return { meta, Component };
 });

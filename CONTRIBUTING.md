@@ -110,7 +110,13 @@ export const meta: ToolMeta = {
   title: 'Add a watermark to a PDF, free and private | neverupload',
   description:
     'Add a text watermark to every page of a PDF in your browser. Free, and your files never leave your device.',
-  keywords: ['stamp', 'confidential', 'draft'],
+  keywords: ['stamp', 'confidential', 'draft', 'watermark pdf free'],
+  intro: 'Add a text watermark such as DRAFT or CONFIDENTIAL to every page of a PDF...',
+  steps: [
+    'Drop a PDF into the box.',
+    'Type the watermark text.',
+    'Press “Add watermark” and download.',
+  ],
   faq: [{ q: 'How do I add a watermark?', a: '...' }, PRIVACY_FAQ, OFFLINE_FAQ],
 };
 ```
@@ -134,6 +140,10 @@ The component must be the file's **default export**.
 - Add the meta to `TOOL_METAS` in `src/tools/meta.ts`. The home page, routes, sitemap and
   pre-rendered SEO page are generated from this list.
 - Add the lazy component to `src/tools/registry.ts`.
+
+Want an extra SEO landing page for a popular search (e.g. "PDF to TIFF")? Add an entry to
+`src/tools/landing.ts`. It gets its own URL, title and text, and reuses an existing tool with a
+preset.
 
 ### 7. Test it
 

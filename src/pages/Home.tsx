@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { PrivacyBanner } from '../components/PrivacyBanner';
 import { ToolIcon } from '../components/ToolIcon';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
-import { searchTools, SITE, TOOL_METAS } from '../tools/meta';
+import { LANDING_METAS, searchTools, SITE, TOOL_METAS } from '../tools/meta';
 import type { ToolCategory } from '../tools/types';
 
 const SECTIONS: { category: ToolCategory; title: string }[] = [
@@ -90,6 +90,61 @@ export default function Home() {
           </section>
         );
       })}
+
+      {!query && (
+        <>
+          <nav aria-labelledby="popular-conversions" className="space-y-3">
+            <h2 id="popular-conversions" className="text-lg font-semibold">
+              Popular conversions
+            </h2>
+            <ul className="flex flex-wrap gap-2">
+              {LANDING_METAS.map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    to={`/${p.slug}/`}
+                    className="inline-flex rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm hover:border-brand-500 dark:border-slate-700 dark:bg-slate-900"
+                  >
+                    {p.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <section aria-labelledby="why" className="space-y-4">
+            <h2 id="why" className="text-xl font-semibold">
+              Why use neverupload?
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {WHY.map((item) => (
+                <div key={item.title} className="card">
+                  <h3 className="font-semibold">{item.title}</h3>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </div>
   );
 }
+
+const WHY = [
+  {
+    title: '100% private: no uploads',
+    text: 'Other online PDF and image tools upload your files to their servers. neverupload processes everything inside your browser, so contracts, IDs, bank statements and photos never leave your phone or computer.',
+  },
+  {
+    title: 'Free, with no limits or watermarks',
+    text: 'No sign-up, no daily limits, no watermarks and no ads. Merge, split, compress and convert as many files as you like. The project is open source and funded by donations.',
+  },
+  {
+    title: 'Fast, even with big files',
+    text: 'Because nothing is uploaded or downloaded, there is no waiting for slow transfers. Files of 100 MB and more are processed in seconds on a modern device.',
+  },
+  {
+    title: 'Works offline, on any device',
+    text: 'After your first visit the tools work without an internet connection. Install neverupload as an app on Android, iPhone, Windows, Mac or Linux.',
+  },
+];

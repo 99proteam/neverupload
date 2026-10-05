@@ -12,6 +12,7 @@ import { usePdfFile } from '../../hooks/usePdfFile';
 import { bytesToBlob } from '../../lib/download';
 import { readFileBytes } from '../../lib/files';
 import { baseName } from '../../lib/format';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import { compressPdf, DPI_CHOICES, summarizeCompression, type CompressionSummary } from './process';
 
@@ -26,7 +27,7 @@ const DPI_LABELS: Record<number, string> = {
   200: '200 DPI (sharpest)',
 };
 
-export default function CompressPdfTool() {
+export default function CompressPdfTool({ page = meta }: ToolProps) {
   const job = useJob<Result>();
   const { pdf, loading, load, clear } = usePdfFile(job.fail);
   const [quality, setQuality] = useState(60);
@@ -61,7 +62,7 @@ export default function CompressPdfTool() {
   };
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' && pdf ? (
         <ResultPanel
           title={

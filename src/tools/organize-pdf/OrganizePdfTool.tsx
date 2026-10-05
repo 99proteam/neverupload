@@ -15,6 +15,7 @@ import { readFileBytes } from '../../lib/files';
 import { baseName, formatBytes } from '../../lib/format';
 import type { PDFDocumentProxy } from '../../lib/pdfRender';
 import { runPdfJob } from '../../workers';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import { identityLayout, normalizeRotation, type PageInstruction } from './process';
 
@@ -23,7 +24,7 @@ interface Loaded {
   doc: PDFDocumentProxy;
 }
 
-export default function OrganizePdfTool() {
+export default function OrganizePdfTool({ page = meta }: ToolProps) {
   const job = useJob<Blob>();
   const [loaded, setLoaded] = useState<Loaded | null>(null);
   const [opening, setOpening] = useState(false);
@@ -97,7 +98,7 @@ export default function OrganizePdfTool() {
     layout.length !== pageCount || layout.some((p, i) => p.source !== i || p.rotate !== 0);
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' && loaded ? (
         <ResultPanel
           title="Your PDF is ready"

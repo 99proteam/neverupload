@@ -9,14 +9,17 @@ import { useImageItems } from '../../hooks/useImageItems';
 import { useJob } from '../../hooks/useJob';
 import { browserImageTransformer } from '../../lib/imageCodec';
 import { finishImageBatch, type ImageBatchOutput } from '../../lib/imageBatchZip';
-import type { OutputMime } from '../../lib/imageFormat';
+import { isOutputMime, type OutputMime } from '../../lib/imageFormat';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import { convertImages } from './process';
 
-export default function ConvertImageTool() {
+export default function ConvertImageTool({ page = meta, preset }: ToolProps) {
   const images = useImageItems();
   const job = useJob<ImageBatchOutput>();
-  const [target, setTarget] = useState<OutputMime>('image/jpeg');
+  const [target, setTarget] = useState<OutputMime>(
+    preset?.target && isOutputMime(preset.target) ? preset.target : 'image/jpeg',
+  );
   const [quality, setQuality] = useState(90);
   const [background, setBackground] = useState('#ffffff');
   const bgId = useId();
@@ -39,7 +42,7 @@ export default function ConvertImageTool() {
   };
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' ? (
         <ImageBatchResults
           output={job.state.result}

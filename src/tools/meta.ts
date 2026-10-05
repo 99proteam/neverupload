@@ -8,6 +8,7 @@ import { meta as compressImage } from './compress-image/meta.ts';
 import { meta as resizeImage } from './resize-image/meta.ts';
 import { meta as convertImage } from './convert-image/meta.ts';
 import { meta as qrCode } from './qr-code-generator/meta.ts';
+import { LANDING_METAS } from './landing.ts';
 import type { ToolMeta } from './types.ts';
 
 /** All tools, in the order they appear on the home page. */
@@ -24,6 +25,11 @@ export const TOOL_METAS: ToolMeta[] = [
   qrCode,
 ];
 
+/** Every page with its own URL: the tools plus keyword landing pages. */
+export const ALL_PAGES: ToolMeta[] = [...TOOL_METAS, ...LANDING_METAS];
+
+export { LANDING_METAS };
+
 export const SITE = {
   name: 'neverupload',
   tagline: 'Your files never leave your device.',
@@ -33,6 +39,11 @@ export const SITE = {
   repoUrl: 'https://github.com/99proteam/neverupload',
   sponsorUrl: 'https://github.com/sponsors/99proteam',
 } as const;
+
+/** Social preview image for a page (landing pages share their tool's image). */
+export function ogImagePath(slug: string): string {
+  return `og/${slug}.png`;
+}
 
 /** Case-insensitive search over name, summary and keywords. */
 export function searchTools(tools: ToolMeta[], query: string): ToolMeta[] {

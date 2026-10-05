@@ -12,6 +12,7 @@ import { bytesToBlob } from '../../lib/download';
 import { makeId, readFileBytes } from '../../lib/files';
 import { formatBytes } from '../../lib/format';
 import { runPdfJob } from '../../workers';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import type { Orientation, PageSize } from './process';
 
@@ -22,7 +23,7 @@ interface Item {
 
 const IMAGE_ACCEPT = 'image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp';
 
-export default function ImagesToPdfTool() {
+export default function ImagesToPdfTool({ page = meta }: ToolProps) {
   const [items, setItems] = useState<Item[]>([]);
   const [pageSize, setPageSize] = useState<PageSize>('a4');
   const [orientation, setOrientation] = useState<Orientation>('auto');
@@ -55,7 +56,7 @@ export default function ImagesToPdfTool() {
   };
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' ? (
         <ResultPanel
           title="Your PDF is ready"

@@ -7,10 +7,32 @@ export const meta: ToolMeta = {
   category: 'image',
   icon: 'imageCompress',
   summary: 'Make JPG, PNG and WebP images smaller with a quality slider.',
+  intro:
+    'Compress JPG, PNG and WebP images to make them smaller for websites, email and forms that have an upload limit. Move the quality slider and see the new file size live before you download. Compress many photos at once, privately, on your own device.',
+  steps: [
+    'Drop one or more images into the box.',
+    'Move the quality slider and watch the live size preview.',
+    'Optionally convert to WebP or JPG for bigger savings.',
+    'Press “Compress” and download your images (or a zip).',
+  ],
   title: 'Compress JPG, PNG and WebP images, free and private | neverupload',
   description:
     'Reduce image file size with a quality slider and live size preview. Batch compress JPG, PNG and WebP in your browser; images never leave your device.',
-  keywords: ['reduce', 'shrink', 'optimize', 'smaller', 'jpg', 'png', 'webp', 'photo'],
+  keywords: [
+    'reduce',
+    'shrink',
+    'optimize',
+    'smaller',
+    'jpg',
+    'png',
+    'webp',
+    'photo',
+    'image compressor',
+    'reduce image size',
+    'compress jpeg',
+    'compress png',
+    'compress photo to 100kb',
+  ],
   faq: [
     {
       q: 'What quality should I pick?',

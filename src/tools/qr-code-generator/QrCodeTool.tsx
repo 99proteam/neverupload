@@ -6,6 +6,7 @@ import { Segmented } from '../../components/Segmented';
 import { ToolPage } from '../../components/ToolPage';
 import { bytesToBlob, downloadBlob } from '../../lib/download';
 import { toUserMessage } from '../../lib/errors';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import {
   dataUrlToBytes,
@@ -16,7 +17,7 @@ import {
   type QrOptions,
 } from './process';
 
-export default function QrCodeTool() {
+export default function QrCodeTool({ page = meta }: ToolProps) {
   const [text, setText] = useState('');
   const [options, setOptions] = useState<QrOptions>(DEFAULT_QR_OPTIONS);
   const [generated, setSvg] = useState<string | null>(null);
@@ -64,7 +65,7 @@ export default function QrCodeTool() {
   };
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       <div className="grid gap-6 md:grid-cols-[1fr_minmax(0,280px)]">
         <div className="space-y-4">
           <div>

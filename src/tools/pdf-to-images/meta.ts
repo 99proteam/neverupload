@@ -7,10 +7,29 @@ export const meta: ToolMeta = {
   category: 'pdf',
   icon: 'pdfToImages',
   summary: 'Save each PDF page as a PNG or JPG image.',
+  intro:
+    'Convert each page of a PDF into a high-quality PNG or JPG image. Choose the resolution, from 72 DPI for the screen up to 300 DPI for printing, and download all pages as a zip. The conversion runs entirely in your browser.',
+  steps: [
+    'Drop a PDF into the box, or tap “Choose a PDF file”.',
+    'Choose PNG or JPG and the resolution.',
+    'Press “Convert”.',
+    'Download the image, or a zip with one image per page.',
+  ],
   title: 'PDF to JPG or PNG converter, free and private | neverupload',
   description:
     'Convert every page of a PDF to PNG or JPG images and download them as a zip. Pick the resolution. Runs in your browser; nothing is uploaded.',
-  keywords: ['pdf to jpg', 'pdf to png', 'export', 'pages', 'image', 'convert'],
+  keywords: [
+    'pdf to jpg',
+    'pdf to png',
+    'export',
+    'pages',
+    'image',
+    'convert',
+    'pdf to image',
+    'pdf to jpg converter',
+    'pdf to png converter',
+    'save pdf page as image',
+  ],
   faq: [
     {
       q: 'PNG or JPG?',

@@ -14,6 +14,7 @@ import { baseName, formatBytes } from '../../lib/format';
 import { toUserMessage } from '../../lib/errors';
 import { zipFiles } from '../../lib/zip';
 import { runPdfJob } from '../../workers';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import { everyPageGroups, parsePageRanges, splitFileName } from './process';
 
@@ -25,7 +26,7 @@ interface SplitResult {
   count: number;
 }
 
-export default function SplitPdfTool() {
+export default function SplitPdfTool({ page = meta }: ToolProps) {
   const job = useJob<SplitResult>();
   const { pdf, loading, load, clear } = usePdfFile(job.fail);
   const [mode, setMode] = useState<Mode>('ranges');
@@ -77,7 +78,7 @@ export default function SplitPdfTool() {
   };
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' ? (
         <ResultPanel
           title={

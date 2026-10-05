@@ -11,7 +11,8 @@ import { toUserMessage } from '../../lib/errors';
 import { formatBytes, percentSaved } from '../../lib/format';
 import { browserImageTransformer } from '../../lib/imageCodec';
 import { finishImageBatch, type ImageBatchOutput } from '../../lib/imageBatchZip';
-import type { OutputMime } from '../../lib/imageFormat';
+import { isOutputMime, type OutputMime } from '../../lib/imageFormat';
+import type { ToolProps } from '../types';
 import { meta } from './meta';
 import { compressImages, compressionPlan, type CompressImageOptions } from './process';
 
@@ -48,11 +49,13 @@ function useLivePreview(file: File | undefined, options: CompressImageOptions) {
   return file ? preview : null;
 }
 
-export default function CompressImageTool() {
+export default function CompressImageTool({ page = meta, preset }: ToolProps) {
   const images = useImageItems();
   const job = useJob<ImageBatchOutput>();
   const [quality, setQuality] = useState(75);
-  const [format, setFormat] = useState<FormatChoice>('same');
+  const [format, setFormat] = useState<FormatChoice>(
+    preset?.format && isOutputMime(preset.format) ? preset.format : 'same',
+  );
   const first = images.items[0]?.file;
   const preview = useLivePreview(first, { quality: quality / 100, format });
 
@@ -76,7 +79,7 @@ export default function CompressImageTool() {
   const hasPng = images.items.some((i) => i.file.type === 'image/png');
 
   return (
-    <ToolPage meta={meta}>
+    <ToolPage meta={page}>
       {job.state.status === 'done' ? (
         <ImageBatchResults
           output={job.state.result}
