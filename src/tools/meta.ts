@@ -37,7 +37,7 @@ export const SITE = {
   description:
     'Free, open-source PDF and image tools that run 100% in your browser. Merge, split, compress, convert and more. Your files never leave your device. Works offline.',
   repoUrl: 'https://github.com/99proteam/neverupload',
-  sponsorUrl: 'https://github.com/sponsors/99proteam',
+  sponsorUrl: 'https://buymeacoffee.com/99proteam',
 } as const;
 
 /** Social preview image for a page (landing pages share their tool's image). */

@@ -1,4 +1,4 @@
-import { Heart, ShieldCheck } from 'lucide-react';
+import { Coffee, ShieldCheck } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 import { Suspense } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
@@ -85,7 +85,7 @@ export function Layout() {
               className="inline-flex items-center gap-1 hover:underline"
               rel="noopener"
             >
-              <Heart aria-hidden="true" className="h-4 w-4 text-pink-600" />
+              <Coffee aria-hidden="true" className="h-4 w-4 text-amber-600" />
               Support neverupload
             </a>
           </div>

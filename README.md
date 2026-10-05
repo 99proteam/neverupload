@@ -4,7 +4,7 @@
 
 **Free PDF and image tools that run 100% in your browser. Your files never leave your device.**
 
-[Live demo](https://99proteam.github.io/neverupload/) · [Report a bug](https://github.com/99proteam/neverupload/issues/new?template=bug_report.yml) · [Request a tool](https://github.com/99proteam/neverupload/issues/new?template=tool_request.yml) · [Support the project](#support-this-project)
+[Live demo](https://99proteam.github.io/neverupload/) · [Report a bug](https://github.com/99proteam/neverupload/issues/new?template=bug_report.yml) · [Request a tool](https://github.com/99proteam/neverupload/issues/new?template=tool_request.yml) · [Buy me a coffee](https://buymeacoffee.com/99proteam)
 
 <!-- Screenshot: replace docs/screenshot-light.png with a newer capture whenever the UI changes. -->
 <img src="docs/screenshot-light.png" alt="neverupload home page showing a privacy banner, a search box and a grid of PDF and image tools" width="800" />
@@ -147,9 +147,9 @@ Want to add a tool? See [CONTRIBUTING.md](CONTRIBUTING.md).
 neverupload is free, has no ads and never will. Donations pay for development time and keep
 it independent.
 
-- ❤️ [Sponsor on GitHub](https://github.com/sponsors/99proteam)
-- ☕ [Buy Me a Coffee](https://buymeacoffee.com/YOUR_BMC_USERNAME) <!-- TODO: replace -->
-- 💳 [Razorpay (UPI, cards; India)](https://razorpay.me/@YOUR_RAZORPAY_HANDLE) <!-- TODO: replace -->
+☕ **[Buy me a coffee](https://buymeacoffee.com/99proteam)**
+
+<a href="https://buymeacoffee.com/99proteam"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-99proteam-FFDD00?logo=buymeacoffee&logoColor=black" alt="Buy me a coffee" /></a>
 
 Not able to donate? Starring the repo, sharing it with a friend, or fixing a typo helps too.
 
