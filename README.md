@@ -89,10 +89,10 @@ secrets, database or backend are needed.
 
 ### GitHub Pages
 
-The included workflow (`.github/workflows/deploy.yml`) tests, builds and deploys every push to
-`main`. In your fork, go to **Settings → Pages → Build and deployment → Source** and choose
-**GitHub Actions**. The workflow picks the correct base path automatically, including with a
-custom domain.
+The included workflow (`.github/workflows/deploy.yml`) lints, tests and builds every push to
+`main`, then publishes `dist/` to the `gh-pages` branch. GitHub Pages serves that branch at
+`https://<user>.github.io/<repo>/`. If Pages isn't on yet in your fork, open
+**Settings → Pages** and choose **Deploy from a branch → `gh-pages` / root**.
 
 ## Project structure
 
