@@ -6,6 +6,7 @@ import { ALL_PAGES, SITE } from '../tools/meta';
 import { OfflineStatus } from './OfflineStatus';
 import { PrivacyBanner } from './PrivacyBanner';
 import { ProgressBar } from './ProgressBar';
+import { SponsorBanner, SponsorButton } from './SponsorBanner';
 
 export function Layout() {
   const { pathname } = useLocation();
@@ -47,6 +48,7 @@ export function Layout() {
             >
               <GithubIcon className="h-5 w-5" />
             </a>
+            <SponsorButton />
           </nav>
         </div>
       </header>
@@ -56,6 +58,7 @@ export function Layout() {
         <Suspense fallback={<ProgressBar value={null} label="Loading tool…" />}>
           <Outlet />
         </Suspense>
+        {!isHome && <SponsorBanner compact />}
       </main>
 
       <footer className="border-t border-slate-200 dark:border-slate-800">
@@ -82,11 +85,12 @@ export function Layout() {
             </a>
             <a
               href={SITE.sponsorUrl}
-              className="inline-flex items-center gap-1 hover:underline"
+              target="_blank"
+              className="inline-flex items-center gap-1.5 rounded-md bg-[#FFDD00] px-3 py-1.5 font-bold text-slate-900 hover:bg-[#FFE94D]"
               rel="noopener"
             >
-              <Coffee aria-hidden="true" className="h-4 w-4 text-amber-600" />
-              Support neverupload
+              <Coffee aria-hidden="true" className="h-4 w-4" />
+              Buy me a coffee
             </a>
           </div>
         </div>

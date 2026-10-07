@@ -2,6 +2,7 @@ import { Search } from 'lucide-react';
 import { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PrivacyBanner } from '../components/PrivacyBanner';
+import { SponsorBanner } from '../components/SponsorBanner';
 import { ToolIcon } from '../components/ToolIcon';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { LANDING_METAS, searchTools, SITE, TOOL_METAS } from '../tools/meta';
@@ -90,6 +91,8 @@ export default function Home() {
           </section>
         );
       })}
+
+      <SponsorBanner />
 
       {!query && (
         <>

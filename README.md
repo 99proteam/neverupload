@@ -4,6 +4,20 @@
 
 **Free PDF and image tools that run 100% in your browser. Your files never leave your device.**
 
+Merge PDF · Split PDF · Compress PDF · JPG to PDF · PDF to JPG · Compress, resize and convert images · QR codes<br />
+No uploads · No sign-up · No ads · No watermarks · Works offline · Open source
+
+<a href="https://99proteam.github.io/neverupload/"><img src="https://img.shields.io/badge/%E2%96%B6%20Try%20the%20live%20demo-059669?style=for-the-badge" alt="Try the live demo" height="40" /></a>
+<a href="https://buymeacoffee.com/99proteam"><img src="https://img.shields.io/badge/%E2%98%95%20Buy%20me%20a%20coffee-FFDD00?style=for-the-badge&logoColor=black" alt="Buy me a coffee" height="40" /></a>
+
+<a href="https://buymeacoffee.com/99proteam"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy me a coffee: support neverupload" width="320" /></a>
+
+**neverupload is 100% free and funded only by donations. If it saved you time, please [buy me a coffee ☕](https://buymeacoffee.com/99proteam).**
+
+[![GitHub stars](https://img.shields.io/github/stars/99proteam/neverupload?style=social)](https://github.com/99proteam/neverupload/stargazers)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Deploy](https://github.com/99proteam/neverupload/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/99proteam/neverupload/actions/workflows/deploy.yml)
+
 [Live demo](https://99proteam.github.io/neverupload/) · [Report a bug](https://github.com/99proteam/neverupload/issues/new?template=bug_report.yml) · [Request a tool](https://github.com/99proteam/neverupload/issues/new?template=tool_request.yml) · [Buy me a coffee](https://buymeacoffee.com/99proteam)
 
 <!-- Screenshot: replace docs/screenshot-light.png with a newer capture whenever the UI changes. -->
@@ -147,9 +161,11 @@ Want to add a tool? See [CONTRIBUTING.md](CONTRIBUTING.md).
 neverupload is free, has no ads and never will. Donations pay for development time and keep
 it independent.
 
-☕ **[Buy me a coffee](https://buymeacoffee.com/99proteam)**
+<p align="center">
+  <a href="https://buymeacoffee.com/99proteam"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy me a coffee" width="400" /></a>
+</p>
 
-<a href="https://buymeacoffee.com/99proteam"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-99proteam-FFDD00?logo=buymeacoffee&logoColor=black" alt="Buy me a coffee" /></a>
+<p align="center"><b>☕ <a href="https://buymeacoffee.com/99proteam">buymeacoffee.com/99proteam</a></b></p>
 
 Not able to donate? Starring the repo, sharing it with a friend, or fixing a typo helps too.
 
