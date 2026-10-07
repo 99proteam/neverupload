@@ -1,0 +1,39 @@
+# neverupload
+
+> Free, open-source PDF and image tools that run 100% in your browser. Merge, split, compress, convert and more. Your files never leave your device. Works offline.
+
+All processing happens locally in the browser; files are never uploaded. Free, open source (MIT), no sign-up, works offline.
+
+## Tools
+
+- [Merge PDF](https://99proteam.github.io/neverupload/merge-pdf/): Combine several PDFs into one file, in the order you choose.
+- [Split PDF](https://99proteam.github.io/neverupload/split-pdf/): Extract page ranges or split every page into its own PDF.
+- [Compress PDF](https://99proteam.github.io/neverupload/compress-pdf/): Shrink scanned or image-heavy PDFs. See the size before and after.
+- [Rotate & Reorder PDF](https://99proteam.github.io/neverupload/organize-pdf/): Rotate, reorder or delete pages using page thumbnails.
+- [Images to PDF](https://99proteam.github.io/neverupload/images-to-pdf/): Turn JPG, PNG and WebP images into one PDF.
+- [PDF to Images](https://99proteam.github.io/neverupload/pdf-to-images/): Save each PDF page as a PNG or JPG image.
+- [Compress Image](https://99proteam.github.io/neverupload/compress-image/): Make JPG, PNG and WebP images smaller with a quality slider.
+- [Resize Image](https://99proteam.github.io/neverupload/resize-image/): Resize images by pixels or percent, keeping the aspect ratio.
+- [Convert Image](https://99proteam.github.io/neverupload/convert-image/): Convert between JPG, PNG and WebP, one image or many.
+- [QR Code Generator](https://99proteam.github.io/neverupload/qr-code-generator/): Turn text or a link into a QR code. Download PNG or SVG.
+
+## Popular conversions
+
+- [JPG to PDF](https://99proteam.github.io/neverupload/jpg-to-pdf/): Convert JPG images to a PDF document.
+- [PNG to PDF](https://99proteam.github.io/neverupload/png-to-pdf/): Convert PNG images to a PDF document.
+- [WebP to PDF](https://99proteam.github.io/neverupload/webp-to-pdf/): Convert WebP images to a PDF document.
+- [PDF to JPG](https://99proteam.github.io/neverupload/pdf-to-jpg/): Convert every PDF page to a JPG image.
+- [PDF to PNG](https://99proteam.github.io/neverupload/pdf-to-png/): Convert every PDF page to a PNG image.
+- [WebP to JPG](https://99proteam.github.io/neverupload/webp-to-jpg/): Convert WebP images to JPG, one or many at once.
+- [WebP to PNG](https://99proteam.github.io/neverupload/webp-to-png/): Convert WebP images to PNG, one or many at once.
+- [PNG to JPG](https://99proteam.github.io/neverupload/png-to-jpg/): Convert PNG images to JPG, one or many at once.
+- [JPG to PNG](https://99proteam.github.io/neverupload/jpg-to-png/): Convert JPG images to PNG, one or many at once.
+- [JPG to WebP](https://99proteam.github.io/neverupload/jpg-to-webp/): Convert JPG images to WebP, one or many at once.
+- [PNG to WebP](https://99proteam.github.io/neverupload/png-to-webp/): Convert PNG images to WebP, one or many at once.
+- [Compress PDF for email](https://99proteam.github.io/neverupload/compress-pdf-for-email/): Make a PDF small enough to attach to an email.
+- [Compress JPEG](https://99proteam.github.io/neverupload/compress-jpeg/): Reduce JPG/JPEG photo size with a quality slider.
+
+## Project
+
+- [Source code](https://github.com/99proteam/neverupload)
+- [Support the project](https://buymeacoffee.com/99proteam)

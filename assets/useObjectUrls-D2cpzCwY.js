@@ -1,0 +1,1 @@
+import{C as e,x as t}from"./index-BYnJDR8L.js";var n=e(t(),1);function r(e){let t=(0,n.useMemo)(()=>e.map(e=>URL.createObjectURL(e)),[e]);return(0,n.useEffect)(()=>()=>t.forEach(e=>URL.revokeObjectURL(e)),[t]),t}export{r as t};
