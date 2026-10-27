@@ -10,7 +10,9 @@ export type ToolIconName =
   | 'imageCompress'
   | 'resize'
   | 'convert'
-  | 'qr';
+  | 'qr'
+  | 'pageNumbers'
+  | 'watermark';
 
 export interface FaqItem {
   q: string;

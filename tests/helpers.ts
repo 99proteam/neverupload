@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { PDFDocument } from 'pdf-lib';
+import { decodePDFRawStream, PDFArray, PDFDocument, PDFRawStream } from 'pdf-lib';
 import type { PageRenderer } from '../src/lib/pageRenderer';
 
 export function fixture(name: string): Uint8Array {
@@ -60,4 +60,35 @@ export function fakeTransformer(
       height,
     };
   };
+}
+
+/** Every string drawn with a text operator, page by page, in content-stream order. */
+export async function allDrawnTexts(bytes: Uint8Array): Promise<string[]> {
+  const doc = await PDFDocument.load(bytes);
+  const texts: string[] = [];
+  for (const page of doc.getPages()) {
+    const contents = page.node.Contents();
+    const streams = contents instanceof PDFArray ? contents.asArray() : contents ? [contents] : [];
+    for (const ref of streams) {
+      const stream = doc.context.lookup(ref);
+      if (!(stream instanceof PDFRawStream)) continue;
+      const source = new TextDecoder('latin1').decode(decodePDFRawStream(stream).decode());
+      for (const m of source.matchAll(/<([0-9A-Fa-f]*)>\s*Tj/g)) {
+        const hex = m[1] ?? '';
+        texts.push(hex.replace(/../g, (h) => String.fromCharCode(parseInt(h, 16))));
+      }
+    }
+  }
+  return texts;
+}
+
+/** Text a tool added: everything drawn in `output` that was not already in `input`. */
+export async function drawnTexts(output: Uint8Array, input?: Uint8Array): Promise<string[]> {
+  const after = await allDrawnTexts(output);
+  if (!input) return after;
+  for (const text of await allDrawnTexts(input)) {
+    const i = after.indexOf(text);
+    if (i >= 0) after.splice(i, 1);
+  }
+  return after;
 }

@@ -6,10 +6,12 @@ import {
   Files,
   ImageDown,
   Images,
+  ListOrdered,
   Minimize2,
   QrCode,
   Scaling,
   Scissors,
+  Stamp,
   type LucideProps,
 } from 'lucide-react';
 import type { ToolIconName } from '../tools/types';
@@ -25,6 +27,8 @@ const ICONS: Record<ToolIconName, React.ComponentType<LucideProps>> = {
   resize: Scaling,
   convert: ArrowLeftRight,
   qr: QrCode,
+  pageNumbers: ListOrdered,
+  watermark: Stamp,
 };
 
 export function ToolIcon({ name, ...props }: { name: ToolIconName } & LucideProps) {

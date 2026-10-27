@@ -4,21 +4,20 @@
 
 **Free PDF and image tools that run 100% in your browser. Your files never leave your device.**
 
-Merge PDF · Split PDF · Compress PDF · JPG to PDF · PDF to JPG · Compress, resize and convert images · QR codes<br />
+Merge PDF · Split PDF · Compress PDF · Watermark PDF · Add page numbers · JPG to PDF · PDF to JPG · Compress, resize and convert images · QR codes<br />
 No uploads · No sign-up · No ads · No watermarks · Works offline · Open source
 
 <a href="https://99proteam.github.io/neverupload/"><img src="https://img.shields.io/badge/%E2%96%B6%20Try%20the%20live%20demo-059669?style=for-the-badge" alt="Try the live demo" height="40" /></a>
+<a href="https://github.com/sponsors/99proteam"><img src="https://img.shields.io/badge/%F0%9F%92%96%20Sponsor%20on%20GitHub-bf3989?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub" height="40" /></a>
 <a href="https://buymeacoffee.com/99proteam"><img src="https://img.shields.io/badge/%E2%98%95%20Buy%20me%20a%20coffee-FFDD00?style=for-the-badge&logoColor=black" alt="Buy me a coffee" height="40" /></a>
 
-<a href="https://buymeacoffee.com/99proteam"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy me a coffee: support neverupload" width="320" /></a>
-
-**neverupload is 100% free and funded only by donations. If it saved you time, please [buy me a coffee ☕](https://buymeacoffee.com/99proteam).**
+**neverupload is 100% free and funded only by sponsors. If it saved you time, please [sponsor it on GitHub 💖](https://github.com/sponsors/99proteam). Our goal is $5,000 a month so it can be maintained full time.**
 
 [![GitHub stars](https://img.shields.io/github/stars/99proteam/neverupload?style=social)](https://github.com/99proteam/neverupload/stargazers)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Deploy](https://github.com/99proteam/neverupload/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/99proteam/neverupload/actions/workflows/deploy.yml)
 
-[Live demo](https://99proteam.github.io/neverupload/) · [Report a bug](https://github.com/99proteam/neverupload/issues/new?template=bug_report.yml) · [Request a tool](https://github.com/99proteam/neverupload/issues/new?template=tool_request.yml) · [Buy me a coffee](https://buymeacoffee.com/99proteam)
+[Live demo](https://99proteam.github.io/neverupload/) · [Report a bug](https://github.com/99proteam/neverupload/issues/new?template=bug_report.yml) · [Request a tool](https://github.com/99proteam/neverupload/issues/new?template=tool_request.yml) · [Sponsor on GitHub](https://github.com/sponsors/99proteam)
 
 <!-- Screenshot: replace docs/screenshot-light.png with a newer capture whenever the UI changes. -->
 <img src="docs/screenshot-light.png" alt="neverupload home page showing a privacy banner, a search box and a grid of PDF and image tools" width="800" />
@@ -27,18 +26,20 @@ No uploads · No sign-up · No ads · No watermarks · Works offline · Open sou
 
 ## Tools
 
-| Tool                     | What it does                                                                    |
-| ------------------------ | ------------------------------------------------------------------------------- |
-| **Merge PDF**            | Combine several PDFs into one; drag to set the order.                           |
-| **Split PDF**            | Extract page ranges like `1-3, 5, 8-10`, or split every page (zip download).    |
-| **Compress PDF**         | Re-render pages as JPEG at the quality and resolution you choose; before/after. |
-| **Rotate & Reorder PDF** | Rotate, reorder and delete pages using thumbnails.                              |
-| **Images to PDF**        | JPG, PNG and WebP to one PDF: A4, Letter or fit-to-image pages.                 |
-| **PDF to Images**        | Each page to PNG or JPG at 72/150/300 DPI (zip download).                       |
-| **Compress Image**       | Quality slider with a live size preview; batch support.                         |
-| **Resize Image**         | By pixels or percent, keeping the aspect ratio; batch support.                  |
-| **Convert Image**        | Between JPG, PNG and WebP; batch support.                                       |
-| **QR Code Generator**    | Text or URL to PNG or SVG. No redirects, no tracking, no expiry.                |
+| Tool                     | What it does                                                                       |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| **Merge PDF**            | Combine several PDFs into one; drag to set the order.                              |
+| **Split PDF**            | Extract page ranges like `1-3, 5, 8-10`, or split every page (zip download).       |
+| **Compress PDF**         | Re-render pages as JPEG at the quality and resolution you choose; before/after.    |
+| **Rotate & Reorder PDF** | Rotate, reorder and delete pages using thumbnails.                                 |
+| **Add Page Numbers**     | Top or bottom, left/center/right, “Page 1 of 10” styles, custom start, skip cover. |
+| **Watermark PDF**        | Diagonal, horizontal or tiled text such as DRAFT; color and opacity.               |
+| **Images to PDF**        | JPG, PNG and WebP to one PDF: A4, Letter or fit-to-image pages.                    |
+| **PDF to Images**        | Each page to PNG or JPG at 72/150/300 DPI (zip download).                          |
+| **Compress Image**       | Quality slider with a live size preview; batch support.                            |
+| **Resize Image**         | By pixels or percent, keeping the aspect ratio; batch support.                     |
+| **Convert Image**        | Between JPG, PNG and WebP; batch support.                                          |
+| **QR Code Generator**    | Text or URL to PNG or SVG. No redirects, no tracking, no expiry.                   |
 
 Every tool has drag and drop, a progress bar, clear error messages, one-click download and a
 "Process another" button. Everything works offline once the app has loaded, and it can be
@@ -113,7 +114,7 @@ The included workflow (`.github/workflows/deploy.yml`) lints, tests and builds e
 Every page is pre-rendered at build time, so search engines and link previews get real content
 without running JavaScript:
 
-- **23 indexable pages:** 10 tools plus keyword landing pages such as `/jpg-to-pdf/`,
+- **25 indexable pages:** 12 tools plus keyword landing pages such as `/jpg-to-pdf/`,
   `/pdf-to-jpg/`, `/webp-to-jpg/` and `/compress-pdf-for-email/` (defined in
   `src/tools/landing.ts`; each opens the right tool with the right preset).
 - **Per-page tags:** title, description, keywords, canonical, `hreflang`, robots, Open Graph and
@@ -158,14 +159,15 @@ Want to add a tool? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Support this project
 
-neverupload is free, has no ads and never will. Donations pay for development time and keep
-it independent.
+neverupload is free, has no ads and never will. Sponsors pay for development time and keep
+it independent. Our goal is **$5,000 a month** on GitHub Sponsors so it can be maintained full
+time.
 
 <p align="center">
-  <a href="https://buymeacoffee.com/99proteam"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy me a coffee" width="400" /></a>
+  <a href="https://github.com/sponsors/99proteam"><img src="https://img.shields.io/badge/%F0%9F%92%96%20Sponsor%20on%20GitHub-bf3989?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub" height="56" /></a>
 </p>
 
-<p align="center"><b>☕ <a href="https://buymeacoffee.com/99proteam">buymeacoffee.com/99proteam</a></b></p>
+<p align="center"><b>💖 <a href="https://github.com/sponsors/99proteam">github.com/sponsors/99proteam</a></b> (monthly or one-time) · ☕ <a href="https://buymeacoffee.com/99proteam">buy me a coffee</a></p>
 
 Not able to donate? Starring the repo, sharing it with a friend, or fixing a typo helps too.
 

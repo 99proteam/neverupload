@@ -1,4 +1,4 @@
-import { Coffee, ShieldCheck } from 'lucide-react';
+import { Heart, ShieldCheck } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 import { Suspense } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
@@ -83,14 +83,17 @@ export function Layout() {
             <a href={SITE.repoUrl} className="hover:underline" rel="noopener">
               GitHub
             </a>
+            <a href={SITE.coffeeUrl} target="_blank" className="hover:underline" rel="noopener">
+              Buy me a coffee
+            </a>
             <a
               href={SITE.sponsorUrl}
               target="_blank"
-              className="inline-flex items-center gap-1.5 rounded-md bg-[#FFDD00] px-3 py-1.5 font-bold text-slate-900 hover:bg-[#FFE94D]"
+              className="inline-flex items-center gap-1.5 rounded-md bg-[#bf3989] px-3 py-1.5 font-bold text-white hover:bg-[#a52f75]"
               rel="noopener"
             >
-              <Coffee aria-hidden="true" className="h-4 w-4" />
-              Buy me a coffee
+              <Heart aria-hidden="true" className="h-4 w-4 fill-current" />
+              Sponsor on GitHub
             </a>
           </div>
         </div>

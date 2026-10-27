@@ -3,6 +3,8 @@ import { detectImageFormat } from '../lib/imageFormat';
 import { mergePdfs, type PdfInput } from '../tools/merge-pdf/process';
 import { splitPdf } from '../tools/split-pdf/process';
 import { organizePdf, type PageInstruction } from '../tools/organize-pdf/process';
+import { addPageNumbers, type PageNumberOptions } from '../tools/add-page-numbers/process';
+import { watermarkPdf, type WatermarkOptions } from '../tools/watermark-pdf/process';
 import {
   imagesToPdf,
   type ImageInput,
@@ -19,6 +21,12 @@ exposeWorker({
 
   organize: ({ file, layout }: { file: PdfInput; layout: PageInstruction[] }, onProgress) =>
     organizePdf(file.data, layout, onProgress, file.name),
+
+  pageNumbers: ({ file, options }: { file: PdfInput; options: PageNumberOptions }, onProgress) =>
+    addPageNumbers(file.data, options, onProgress, file.name),
+
+  watermark: ({ file, options }: { file: PdfInput; options: WatermarkOptions }, onProgress) =>
+    watermarkPdf(file.data, options, onProgress, file.name),
 
   imagesToPdf: (
     { images, options }: { images: ImageInput[]; options: ImagesToPdfOptions },

@@ -106,7 +106,7 @@ describe('misc', () => {
   it('searches tools by name and keyword', () => {
     expect(searchTools(TOOL_METAS, 'jpg').map((t) => t.slug)).toContain('images-to-pdf');
     expect(searchTools(TOOL_METAS, 'MERGE').map((t) => t.slug)).toEqual(['merge-pdf']);
-    expect(searchTools(TOOL_METAS, '')).toHaveLength(10);
+    expect(searchTools(TOOL_METAS, '')).toHaveLength(TOOL_METAS.length);
   });
   it('has complete SEO metadata for every page', () => {
     const slugs = new Set<string>();

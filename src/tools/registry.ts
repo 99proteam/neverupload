@@ -8,6 +8,8 @@ const COMPONENTS: Record<string, LazyExoticComponent<ComponentType<ToolProps>>> 
   'split-pdf': lazy(() => import('./split-pdf/SplitPdfTool')),
   'compress-pdf': lazy(() => import('./compress-pdf/CompressPdfTool')),
   'organize-pdf': lazy(() => import('./organize-pdf/OrganizePdfTool')),
+  'add-page-numbers': lazy(() => import('./add-page-numbers/AddPageNumbersTool')),
+  'watermark-pdf': lazy(() => import('./watermark-pdf/WatermarkPdfTool')),
   'images-to-pdf': lazy(() => import('./images-to-pdf/ImagesToPdfTool')),
   'pdf-to-images': lazy(() => import('./pdf-to-images/PdfToImagesTool')),
   'compress-image': lazy(() => import('./compress-image/CompressImageTool')),

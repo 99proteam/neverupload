@@ -2,6 +2,8 @@ import { meta as mergePdf } from './merge-pdf/meta.ts';
 import { meta as splitPdf } from './split-pdf/meta.ts';
 import { meta as compressPdf } from './compress-pdf/meta.ts';
 import { meta as organizePdf } from './organize-pdf/meta.ts';
+import { meta as addPageNumbers } from './add-page-numbers/meta.ts';
+import { meta as watermarkPdf } from './watermark-pdf/meta.ts';
 import { meta as imagesToPdf } from './images-to-pdf/meta.ts';
 import { meta as pdfToImages } from './pdf-to-images/meta.ts';
 import { meta as compressImage } from './compress-image/meta.ts';
@@ -17,6 +19,8 @@ export const TOOL_METAS: ToolMeta[] = [
   splitPdf,
   compressPdf,
   organizePdf,
+  addPageNumbers,
+  watermarkPdf,
   imagesToPdf,
   pdfToImages,
   compressImage,
@@ -37,7 +41,10 @@ export const SITE = {
   description:
     'Free, open-source PDF and image tools that run 100% in your browser. Merge, split, compress, convert and more. Your files never leave your device. Works offline.',
   repoUrl: 'https://github.com/99proteam/neverupload',
-  sponsorUrl: 'https://buymeacoffee.com/99proteam',
+  sponsorUrl: 'https://github.com/sponsors/99proteam',
+  coffeeUrl: 'https://buymeacoffee.com/99proteam',
+  /** Monthly GitHub Sponsors goal, shown next to sponsor links. */
+  sponsorGoal: '$5,000/month',
 } as const;
 
 /** Social preview image for a page (landing pages share their tool's image). */
